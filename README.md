@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# MatcingMateRemake
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### ✨ 프로젝트 개요
 
-## Available Scripts
+##### 혼자서는 운동하기 싫은분들, 혹은 혼자는 할수 없는 운동을 하고싶은 분들을 위해 실시간으로 위치를 조회해
 
-In the project directory, you can run:
+#####  근처의 운동메이트를 쉽게 찾아볼 수 있는 React, Spring기반 웹페이지입니다. 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🧐 기존 MatchingMate 프로젝트와 다른점은?
 
-### `npm test`
+##### 기존 MatchingMate프로젝트가 repository에 존재하지만, 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### 시간에 쫓기면서 만들고 여러 페이지를 구현하려다보니 완성도가 떨어진점이 아쉬워
 
-### `npm run build`
+##### 프로젝트 발표가 끝난 후 백엔드는 기존의것을 사용하되, 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### 필요하다면 다시 구현해나가며 필요하거나 필요없는 부분은 첨삭을 통해 좀 더 완성도를 높여나갈 예정입니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### 🔧 사용 기술
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### Front-End : React, Typescript, Google API, KaKaoMap API, ...etc
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##### Back-ENd : Spring, JWT, ...etc
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### DB: My SQL
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+##### Dev Tools : Visual Studio Code, GitHub, Intelli J
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🏹 개발기간
+
+##### 2022.06.08 ~ ing
