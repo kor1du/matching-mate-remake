@@ -1,3 +1,4 @@
+import React from "react";
 import "../styles/homepageFooter.css";
 import Map from "../images/map.gif";
 import Chat from "../images/chat.gif";
@@ -5,7 +6,7 @@ import Medal from "../images/medal.gif";
 import Muscle from "../images/muscle.gif";
 import Together from "../images/together.gif";
 
-export default function HomepageFooter() {
+const HomepageFooter: React.FC = () => {
   return (
     <div className="footer">
       <p className="title">운동메이트를 통해</p>
@@ -61,4 +62,5 @@ export default function HomepageFooter() {
       </div>
     </div>
   );
-}
+};
+export default HomepageFooter;

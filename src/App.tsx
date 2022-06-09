@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Homepage from "./homepage/homepage";
 import Login from "./login/login";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Routes>
@@ -12,6 +12,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

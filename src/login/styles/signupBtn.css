@@ -17,6 +17,10 @@
     align-items: center;
 }
 
+.login .signup-view .btn-signup.active {
+    display: none;
+}
+
 /* 425px to 599px */
 @media screen and (min-width:425px) and (max-width:599px) {
     .login .signup-view .btn-signup {

@@ -1,8 +1,9 @@
+import React from "react";
 import { Button } from "react-bootstrap";
 import "../styles/homepageHeader.css";
 import "../styles/homepageHeaderAnimations.css";
 
-export default function HomepageHeader() {
+const HomepageHeader: React.FC = () => {
   return (
     <div className="header">
       <p className="catchphrase">혼자서만 하는 운동, 지겹지는 않으신가요?</p>
@@ -15,4 +16,6 @@ export default function HomepageHeader() {
       </div>
     </div>
   );
-}
+};
+
+export default HomepageHeader;
