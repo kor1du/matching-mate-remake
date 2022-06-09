@@ -5,6 +5,8 @@ import Nav from "./nav/nav";
 import "bootstrap/dist/css/bootstrap.css";
 import "./global.css";
 import AOSInit from "./AOS";
+import { BrowserRouter } from "react-router-dom";
+import "hover.css/css/hover.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,7 +16,9 @@ AOSInit();
 
 root.render(
   <React.StrictMode>
-    <Nav></Nav>
-    <App />
+    <BrowserRouter>
+      <Nav></Nav>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );

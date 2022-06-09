@@ -6,8 +6,19 @@ body {
 
 body .App {
     margin-top: 50px;
+    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
 }
 
 p {
     margin-bottom: 0px
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: white;
 }

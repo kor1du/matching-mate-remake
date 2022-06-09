@@ -1,0 +1,53 @@
+.login .signup-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45vw;
+    max-width: 400px;
+    background-color: white;
+    height: 50vh;
+}
+
+.login .signup-view .btn-signup {
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 2rem;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 425px to 599px */
+@media screen and (min-width:425px) and (max-width:599px) {
+    .login .signup-view .btn-signup {
+        font-size: 2.5rem;
+        width: 150px;
+    }
+}
+
+/* 600px to 767px */
+@media screen and (min-width:600px) and (max-width:767px) {
+    .login .signup-view .btn-signup {
+        font-size: 2.8rem;
+        width: 180px;
+        height: 50px;
+    }
+}
+
+/* 768px to 1023px */
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .login .signup-view .btn-signup {
+        font-size: 3.2rem;
+        width: 200px;
+        height: 50px;
+    }
+}
+
+/* 1024px to ~px */
+@media screen and (min-width:1024px) {
+    .login .signup-view .btn-signup {
+        font-size: 3.5rem;
+        width: 200px;
+        height: 50px;
+    }
+}

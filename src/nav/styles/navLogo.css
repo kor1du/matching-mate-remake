@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-.nav .logo>span {
+.nav .logo a {
     padding-left: 5%;
     font-size: 1.9rem;
     font-family: 'Nanum Brush Script', cursive;

@@ -6,7 +6,7 @@
     padding-right: 5%;
 }
 
-.nav .menus>span {
+.nav .menus a {
     font-size: 1.8rem;
     font-family: 'Nanum Brush Script', cursive;
 }
