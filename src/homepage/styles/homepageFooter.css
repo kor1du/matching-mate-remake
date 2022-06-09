@@ -1,0 +1,150 @@
+.homepage .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepage .footer .title {
+    width: 100%;
+    text-align: center;
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 2.5rem;
+}
+
+.homepage .footer .introduce {
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+}
+
+.homepage .footer .introduce img {
+    width: 35vw;
+    height: 35vw;
+    border-radius: 50%;
+}
+
+.homepage .footer .catchphrase {
+    width: 50vw;
+    margin: 0 2.5vw;
+}
+
+.homepage .footer .catchphrase .catchphrase-title {
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.homepage .footer .catchphrase .catchphrase-content {
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* 425px to 599px */
+@media screen and (min-width:425px) and (max-width:599px) {
+    .homepage .footer .title {
+        font-size: 3rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-title {
+        font-size: 2rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-content {
+        font-size: 1.5rem;
+    }
+}
+
+/* 600px to 767px */
+@media screen and (min-width:600px) and (max-width:767px) {
+    .homepage .footer .title {
+        font-size: 3.5rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-title {
+        font-size: 2.5rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-content {
+        font-size: 1.8rem;
+    }
+}
+
+/* 768px to 1023px */
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .homepage .footer .title {
+        font-size: 4.2rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-title {
+        font-size: 3rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-content {
+        font-size: 2.3rem;
+    }
+}
+
+/* 1024px to 1439px */
+@media screen and (min-width:1024px) and (max-width:1439px) {
+    .homepage .footer .title {
+        font-size: 5rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-title {
+        font-size: 3.3rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-content {
+        font-size: 2.7rem;
+    }
+}
+
+/* 1440px to 1919px */
+@media screen and (min-width:1440px) and (max-width:1919px) {
+    .homepage .footer .title {
+        font-size: 7rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-title {
+        font-size: 4rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-content {
+        font-size: 3.5rem;
+    }
+}
+
+/* 1920px to 2559px */
+@media screen and (min-width:1920px) and (max-width:2559px) {
+    .homepage .footer .title {
+        font-size: 8.5rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-title {
+        font-size: 5rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-content {
+        font-size: 4.5rem;
+    }
+}
+
+/* 2560px to ~px */
+@media screen and (min-width:2560px) {
+    .homepage .footer .title {
+        font-size: 10rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-title {
+        font-size: 6.5rem;
+    }
+
+    .homepage .footer .catchphrase .catchphrase-content {
+        font-size: 5.5rem;
+    }
+}

@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
-import "../styles/hompageHeader/homepageHeader.css";
-import "../styles/hompageHeader/homepageHeaderAnimations.css";
+import "../styles/homepageHeader.css";
+import "../styles/homepageHeaderAnimations.css";
 
 export default function HomepageHeader() {
   return (
