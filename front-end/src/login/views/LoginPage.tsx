@@ -65,7 +65,10 @@ const LoginPage: React.FC = () => {
         className="btn-login"
         onClick={async (e: any) => {
           e.preventDefault();
-          if (await Login(user)) navigate(-1);
+          if (await Login(user)) {
+            navigate("/");
+            window.location.reload();
+          }
         }}
       >
         로그인

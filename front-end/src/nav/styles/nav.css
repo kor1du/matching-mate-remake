@@ -8,3 +8,51 @@
     color: white;
     z-index: 10;
 }
+
+.nav a {
+    font-size: 1.9rem;
+    font-family: 'Nanum Brush Script', cursive;
+}
+
+.nav .logo,
+.nav .login,
+.nav .profile-img {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 5vw;
+}
+
+.nav .login,
+.nav .profile-img {
+    justify-content: right;
+}
+
+.nav .profile-img .img-profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.nav .profile-menus {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    color: black;
+}
+
+.nav .profile-menus .menus {
+    font-family: 'Nanum Brush Script', cursive;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.nav .profile-menus .menus .greeting {
+    font-size: 1.5rem;
+    padding: 15px 20px;
+}
