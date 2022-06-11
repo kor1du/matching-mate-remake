@@ -10,7 +10,7 @@
 }
 
 .nav a {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
     font-family: 'Nanum Brush Script', cursive;
 }
 
@@ -43,6 +43,10 @@
 }
 
 .nav .profile-menus .menus {
+    display: none;
+}
+
+.nav .profile-menus .menus.active {
     font-family: 'Nanum Brush Script', cursive;
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
@@ -54,5 +58,53 @@
 
 .nav .profile-menus .menus .greeting {
     font-size: 1.5rem;
-    padding: 15px 20px;
+    padding: 15px 15px;
+}
+
+/* 425px to 599px */
+@media screen and (min-width:425px) and (max-width:599px) {
+    .nav a {
+        font-size: 2.0rem;
+    }
+
+    .nav .profile-menus .menus .greeting {
+        font-size: 2.0rem;
+        padding: 15px 20px;
+    }
+}
+
+/* 600px to 767px */
+@media screen and (min-width:600px) and (max-width:767px) {
+    .nav a {
+        font-size: 2.2rem;
+    }
+
+    .nav .profile-menus .menus .greeting {
+        font-size: 2.2rem;
+        padding: 15px 25px;
+    }
+}
+
+/* 768px to 1023px */
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .nav a {
+        font-size: 2.4rem;
+    }
+
+    .nav .profile-menus .menus .greeting {
+        font-size: 2.4rem;
+        padding: 15px 30px;
+    }
+}
+
+/* 1024px to ~px */
+@media screen and (min-width:1024px) {
+    .nav a {
+        font-size: 2.6rem;
+    }
+
+    .nav .profile-menus .menus .greeting {
+        font-size: 2.6rem;
+        padding: 15px 35px;
+    }
 }

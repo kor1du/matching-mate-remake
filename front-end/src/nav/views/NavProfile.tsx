@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logout from "../../login/components/Logout";
+import ShowMenus from "../components/ShowMenus";
 
 interface Profile {
   imgAddress: string | null;
@@ -21,6 +22,7 @@ const NavProfile: React.FC = () => {
             src={profile.imgAddress}
             alt="img-profile"
             className="img-profile"
+            onClick={ShowMenus}
           />
         </div>
         <div className="profile-menus">
