@@ -1,0 +1,12 @@
+.modal-address .modal-content {
+    min-height: 80vh;
+}
+
+.modal-address .modal-content .modal-daum-post-code {
+    min-height: 500px;
+}
+
+.modal-address .modal-content .modal-daum-post-code>div {
+    position: static !important;
+    min-width: 0 !important;
+}

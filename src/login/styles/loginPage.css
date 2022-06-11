@@ -1,0 +1,120 @@
+.login .login-page {
+    display: none;
+}
+
+.login .login-page.active {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login .login-page .close .btn {
+    background-color: white;
+}
+
+.login .login-page .greeting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+
+.login .login-page .greeting span {
+    font-size: 1.5rem;
+    font-family: 'Nanum Brush Script', cursive;
+    padding-right: 5px;
+}
+
+.login .login-page .greeting img {
+    width: 20px;
+    height: 20px;
+}
+
+.login .login-page .id,
+.login .login-page .password {
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 1.5rem;
+    height: 25%;
+}
+
+/* 425px to 599px */
+@media screen and (min-width:425px) and (max-width:599px) {
+    .login .login-page .greeting span {
+        font-size: 2.0rem;
+    }
+
+    .login .login-page .greeting img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .login .login-page .id,
+    .login .login-page .password {
+        font-size: 2.0rem;
+    }
+}
+
+/* 600px to 767px */
+@media screen and (min-width:600px) and (max-width:767px) {
+    .login .login-page .greeting span {
+        font-size: 2.3rem;
+    }
+
+    .login .login-page .greeting img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .login .login-page .id,
+    .login .login-page .password {
+        font-size: 2.3rem;
+        height: 30%;
+    }
+}
+
+/* 768px to 1023px */
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .login .login-page .greeting {
+        height: 15%;
+    }
+
+    .login .login-page .greeting span {
+        font-size: 2.5rem;
+    }
+
+    .login .login-page .greeting img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .login .login-page .id,
+    .login .login-page .password {
+        font-size: 2.5rem;
+        height: 30%;
+    }
+}
+
+/* 1024px to ~px */
+@media screen and (min-width:1024px) {
+    .login .login-page .greeting {
+        height: 15%;
+    }
+
+    .login .login-page .greeting span {
+        font-size: 2.7rem;
+    }
+
+    .login .login-page .greeting img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .login .login-page .id,
+    .login .login-page .password {
+        font-size: 2.7rem;
+        height: 30%;
+    }
+}

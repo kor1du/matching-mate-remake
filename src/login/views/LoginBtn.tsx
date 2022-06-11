@@ -3,18 +3,16 @@ import { Button } from "react-bootstrap";
 import ShowPage from "../components/ShowPage";
 import "../styles/loginBtn.css";
 
-const LoginView: React.FC = () => {
+const LoginBtn: React.FC = () => {
   return (
-    <div className="login-view">
-      <Button
-        className="btn-login hvr-buzz"
-        variant="light"
-        onClick={() => ShowPage(".btn-login")}
-      >
-        로그인
-      </Button>
-    </div>
+    <Button
+      className="btn-login hvr-buzz"
+      variant="light"
+      onClick={() => ShowPage(".btn-login", ".login-page")}
+    >
+      로그인
+    </Button>
   );
 };
 
-export default LoginView;
+export default LoginBtn;

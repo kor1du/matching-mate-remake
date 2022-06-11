@@ -5,6 +5,7 @@ import Nav from "./nav/nav";
 import "bootstrap/dist/css/bootstrap.css";
 import "./global.css";
 import AOSInit from "./AOS";
+import "animate.css";
 import { BrowserRouter } from "react-router-dom";
 import "hover.css/css/hover.css";
 

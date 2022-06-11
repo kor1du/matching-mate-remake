@@ -1,0 +1,43 @@
+.login-signup {
+    width: 100vw;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./images/background.png");
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-signup .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    max-width: 600px;
+    height: 60vh;
+    background-color: #413F42;
+}
+
+.login-signup .login.active {
+    width: 80vw;
+}
+
+.login-signup .signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    max-width: 600px;
+    height: 60vh;
+    background-color: white;
+}
+
+.login-signup .signup.active {
+    width: 80vw;
+}
+
+.login-signup .close {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
