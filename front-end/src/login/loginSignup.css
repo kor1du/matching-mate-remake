@@ -41,3 +41,11 @@
     width: 100%;
     justify-content: right;
 }
+
+@media screen and (max-height:500px) {
+
+    .login-signup .login,
+    .login-signup .signup {
+        height: 80vh;
+    }
+}

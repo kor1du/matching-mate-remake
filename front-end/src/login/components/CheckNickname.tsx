@@ -14,7 +14,7 @@ export default async function checkNickname(
 
 /* ID 중복체크를 위해 서버에 아이디를 보내는 함수 */
 function postNickname(nickname: string): Promise<Object> {
-  return axios.post("http://localhost:8080/signUp/checkNickname", {
+  return axios.post("http://kor1du.gonetis.com:8080/signUp/checkNickname", {
     nickname: nickname,
   });
 }

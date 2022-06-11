@@ -26,7 +26,7 @@ export default function Login(user: User): Promise<boolean> {
 
 /* User정보를 받아 서버에 로그인 요청후 데이터를 받아오는 함수 */
 function requestLogin(user: User): Promise<Object> {
-  return axios.post("http://localhost:8080/login", user);
+  return axios.post("http://kor1du.gonetis.com:8080/login", user);
 }
 
 /* 받아온 User데이터에서 필요한 정보를 세션에 저장하고 로그인 결과를 리턴하는 함수 */

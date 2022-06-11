@@ -15,7 +15,7 @@
 }
 
 .nav .logo,
-.nav .login,
+.nav .nav-login,
 .nav .profile-img {
     width: 50%;
     height: 100%;
@@ -24,7 +24,7 @@
     padding: 0px 5vw;
 }
 
-.nav .login,
+.nav .nav-login,
 .nav .profile-img {
     justify-content: right;
 }
