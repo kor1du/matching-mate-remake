@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.5",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
+    "autoprefixer": "^10.4.5",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
     "hover.css": "^2.3.2",

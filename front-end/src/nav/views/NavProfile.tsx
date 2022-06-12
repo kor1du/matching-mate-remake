@@ -28,6 +28,7 @@ const NavProfile: React.FC = () => {
         <div className="profile-menus">
           <div className="menus">
             <p className="greeting">안녕하세요 {profile.nickname}님!</p>
+            <Link to="/matching/post">매칭공고</Link>
             <Link to="#">매칭프로필</Link>
             <Link to="#">채팅</Link>
             <Link to="#" onClick={Logout}>
