@@ -9,6 +9,7 @@ import com.matching.system.process.MapProcess;
 import com.matching.system.repository.*;
 import com.matching.system.response.ResponseData;
 import com.matching.system.response.ResponseMessage;
+import io.swagger.models.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -142,6 +143,11 @@ public class MatchingPostService {
         matchingPostRepository.deleteById(postId);
 
         return new ResponseMessage(HttpStatus.OK, "정상적으로 삭제했습니다.");
+    }
+
+    public ResponseData getAddress(MatchingPostDTO.GetAddressDTO getAddressDTO){
+        String address=getMemberAddress(getAddressDTO.getLng(),getAddressDTO.getLat());
+        return new ResponseData(HttpStatus.OK,"주소를 조회했습니다.",address);
     }
 
     // 매칭 공고 조회 -> 사용자 (최신) -> simple 이냐 모두냐

@@ -50,6 +50,14 @@ public class MatchingPostControl {
 
     }
 
+    //사용자 주소 조회
+    @GetMapping(value="/address")
+    public ResponseEntity getAddress(@ModelAttribute MatchingPostDTO.GetAddressDTO getAddressDTO){
+        ResponseData responseData=matchingPostService.getAddress(getAddressDTO);
+
+        return ResponseEntity.status(responseData.getStatus()).body(responseData);
+    }
+
     // 매칭 공고 조회 -> 사용자 (첫 페이지) -> 최신 우선       -> O
     @GetMapping(value = "/recent")
     public ResponseEntity readRecentPosts(@ModelAttribute MatchingPostDTO.SearchConditionDTO searchCondition) {

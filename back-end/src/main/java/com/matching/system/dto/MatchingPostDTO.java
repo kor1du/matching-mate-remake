@@ -139,6 +139,16 @@ public class MatchingPostDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
+    public static class GetAddressDTO{
+        private Double lat;
+        private Double lng;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
     public static class MyCategoryDTO {
         private Double lat;
         private Double lng;
