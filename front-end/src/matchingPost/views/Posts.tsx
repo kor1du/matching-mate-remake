@@ -1,0 +1,44 @@
+import { useEffect, useState } from "react";
+import GetPosts, { Post } from "../components/GetPosts";
+import PostItem from "./PostItem";
+
+const Posts: React.FC = () => {
+  const [posts, setPosts] = useState<Array<Post>>([
+    {
+      categoryImgAddress: "",
+      categoryName: "",
+      id: 0,
+      inChatNumber: 0,
+      matchingDate: new Date(),
+      matchingTime: "",
+      maxNumberOfPeople: 0,
+      nickname: "",
+      numberOfPeople: 0,
+      place: "",
+      postName: "",
+      profileImgAddress: "",
+      recommendedSkill: "",
+      registerDatetime: "",
+      views: 0,
+    },
+  ]);
+
+  useEffect(() => {
+    GetPosts().then((res) => {
+      setPosts(res);
+    });
+  }, []);
+
+  return (
+    <div className="posts">
+      <p className="title">공고목록</p>
+      <div className="post-list">
+        {posts.map((post) => {
+          return <PostItem key={post.id} post={post}></PostItem>;
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default Posts;

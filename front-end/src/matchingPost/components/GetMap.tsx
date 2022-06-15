@@ -1,5 +1,9 @@
 import axios from "axios";
-import { Position } from "../views/Map";
+
+interface Position {
+  lat: number;
+  lng: number;
+}
 
 const kakao = (window as any).kakao;
 
@@ -23,7 +27,7 @@ function createMap(): object {
 }
 
 /* 현재 위치 저장 */
-function getCoordinate(): any {
+export function getCoordinate(): any {
   return new Promise((resolve) => {
     if (navigator.geolocation) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다

@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import GetMap from "../components/GetMap";
 
-export interface Position {
-  lat: number;
-  lng: number;
-}
-
 const Map: React.FC = () => {
   const [address, setAddress] = useState<string>("");
 
@@ -14,9 +9,12 @@ const Map: React.FC = () => {
   }, []);
 
   return (
-    <div className="kakao-map">
+    <div className="map">
       <p className="greeting">
-        {sessionStorage.getItem("nickname")}님의 현재 위치는?
+        {sessionStorage.getItem("nickname") !== null
+          ? sessionStorage.getItem("nickname") + ""
+          : "Guest"}
+        님의 현재 위치는?
       </p>
       <p className="greeting address">{address}</p>
       <div id="map"></div>
