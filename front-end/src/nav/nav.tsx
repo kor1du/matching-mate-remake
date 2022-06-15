@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavLogo from "./views/NavLogo";
 import NavLogin from "./views/NavLogin";
 import "./styles/nav.css";

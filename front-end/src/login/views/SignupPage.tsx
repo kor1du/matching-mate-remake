@@ -7,7 +7,6 @@ import CheckIDModal from "./ModalCheckID";
 import EmoticonParty from "../images/emoticon-party.png";
 import CheckNicknameModal from "./ModalCheckNickname";
 import Signup from "../components/Signup";
-import { useNavigate } from "react-router-dom";
 
 export interface User {
   userId: string;

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import IsLogin from "../../login/components/IsLogin";
 
 const NavMenus: React.FC = () => {
   return (

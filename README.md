@@ -22,13 +22,13 @@
 
 ### 🔧 사용 기술
 
-##### Front-End : React, Typescript, Google API, KaKaoMap API, ...etc
+##### Front-End : React, Typescript, Redux, Google API, KaKaoMap API, ...etc
 
-##### Back-ENd : Spring, JWT, ...etc
+##### Back-End : Spring, JWT, ...etc
 
 ##### DB: My SQL
 
-##### Dev Tools : Visual Studio Code, GitHub, Intelli J
+##### Dev Tools : Visual Studio Code, GitHub, Intelli J, ...etc
 
 
 
