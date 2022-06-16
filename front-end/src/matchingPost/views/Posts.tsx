@@ -39,7 +39,7 @@ const Posts: React.FC = () => {
     <div className="posts">
       <p className="title">공고목록</p>
       <div className="post-list">
-        {categoryRedux.length === 0
+        {categoryRedux.length === 0 || categoryRedux === "전체"
           ? posts.map((post) => {
               return <PostItem key={post.id} post={post}></PostItem>;
             })

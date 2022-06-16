@@ -16,7 +16,6 @@ public interface MatchingPostRepository extends JpaRepository<MatchingPost, Long
             "LEFT JOIN mp.member m " +
             "LEFT JOIN mp.category " +
             "WHERE mp.isCompleted = 0 " +
-                "AND DATE_FORMAT(now(), '%Y-%m-%d') <= mp.matchingDate " +
                 "AND mp.place LIKE :address% " +
             "ORDER BY mp.id DESC")
     List<MatchingPost> findByRecentPosts(@Param("address") String address);
