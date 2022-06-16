@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "../styles/homepageHeader.css";
 import "../styles/homepageHeaderAnimations.css";
+import "../images/homepage.png";
 
 const HomepageHeader: React.FC = () => {
   const navigate = useNavigate();

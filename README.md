@@ -22,7 +22,7 @@
 
 ### 🔧 사용 API 및 라이브러리
 
-##### Front-End : React, Typescript, Redux, Axios, GraphQL, Appolo server, Google API, KaKaoMap API, ...etc
+##### Front-End : React, Typescript, Redux, Axios, WebPack, GraphQL, Appolo server, Google API, KaKaoMap API, ...etc
 
 ##### Back-End : Spring, JWT, ...etc
 
