@@ -154,4 +154,13 @@ public class MatchingPostDTO {
         private Double lng;
     }
 
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class Views{
+        private Long id;
+        private Long views;
+    }
 }

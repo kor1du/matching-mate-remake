@@ -58,6 +58,13 @@ public class MatchingPostControl {
         return ResponseEntity.status(responseData.getStatus()).body(responseData);
     }
 
+    @PutMapping(value="/matcingPost/update/views")
+    public ResponseEntity updateViews(@RequestBody MatchingPostDTO.Views views){
+        ResponseData responseData=matchingPostService.updateViews(views);
+
+        return ResponseEntity.status(responseData.getStatus()).body(responseData);
+    }
+
     // 매칭 공고 조회 -> 사용자 (첫 페이지) -> 최신 우선       -> O
     @GetMapping(value = "/recent")
     public ResponseEntity readRecentPosts(@ModelAttribute MatchingPostDTO.SearchConditionDTO searchCondition) {

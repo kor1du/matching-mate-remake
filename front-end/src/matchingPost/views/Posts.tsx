@@ -6,7 +6,7 @@ import PostItem from "./PostItem";
 
 const Posts: React.FC = () => {
   const categoryRedux = useSelector(
-    (state: RootState) => state.categoryRedux.category
+    (state: RootState) => state.CategoryRedux.category
   );
 
   const [posts, setPosts] = useState<Array<Post>>([
@@ -41,11 +41,25 @@ const Posts: React.FC = () => {
       <div className="post-list">
         {categoryRedux.length === 0 || categoryRedux === "전체"
           ? posts.map((post) => {
-              return <PostItem key={post.id} post={post}></PostItem>;
+              return (
+                <PostItem
+                  key={post.id}
+                  post={post}
+                  posts={posts}
+                  setPosts={setPosts}
+                ></PostItem>
+              );
             })
           : posts.map((post) => {
               if (post.categoryName === categoryRedux)
-                return <PostItem key={post.id} post={post}></PostItem>;
+                return (
+                  <PostItem
+                    key={post.id}
+                    post={post}
+                    posts={posts}
+                    setPosts={setPosts}
+                  ></PostItem>
+                );
             })}
       </div>
     </div>

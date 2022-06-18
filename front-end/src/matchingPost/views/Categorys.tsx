@@ -10,7 +10,7 @@ import CategoryItem from "./CategoryItem";
 
 const Categorys: React.FC = () => {
   const categoryRedux = useSelector(
-    (state: RootState) => state.categoryRedux.category
+    (state: RootState) => state.CategoryRedux.category
   );
   const dispatch = useDispatch();
 

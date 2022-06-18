@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.html.Option;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -96,7 +97,7 @@ public class MatchingPostService {
                         .url("https://localhost:8080/matchingPost/detail/" + matchingPostId)
                         .build()
 
-            ));
+                ));
     }
 
     // 매칭 공고 수정
@@ -113,7 +114,7 @@ public class MatchingPostService {
             return new ResponseMessage(HttpStatus.CONFLICT, "현재 인원보다 더 적은 인원은 입력할 수 없습니다.");
 
         // new 알림 전송 -> 지역 수정 시
-        if (! findMatchingPost.get().getPlace().contains(matchingPostUpdateDTO.getPlace()))
+        if (!findMatchingPost.get().getPlace().contains(matchingPostUpdateDTO.getPlace()))
             sendPostNotification(category.get(), matchingPostUpdateDTO.getPlace(), findMatchingPost.get().getId());
 
 
@@ -135,7 +136,8 @@ public class MatchingPostService {
         Optional<MatchingPost> findMatchingPost = matchingPostRepository.findById(postId);
         if (findMatchingPost.isEmpty()) return new ResponseMessage(HttpStatus.NOT_FOUND, "검색한 매칭 공고가 존재하지 않습니다.");
 
-        if (findMatchingPost.get().getIsCompleted() == 1) return new ResponseMessage(HttpStatus.NOT_ACCEPTABLE, "이미 매칭이 완료된 매칭 공고 입니다.");
+        if (findMatchingPost.get().getIsCompleted() == 1)
+            return new ResponseMessage(HttpStatus.NOT_ACCEPTABLE, "이미 매칭이 완료된 매칭 공고 입니다.");
 
         Optional<ChattingRoom> chattingRoom = chattingRoomRepository.findByMatchingPostId(findMatchingPost.get().getId());
         chattingRoom.get().deleteMatchingPost();
@@ -145,23 +147,35 @@ public class MatchingPostService {
         return new ResponseMessage(HttpStatus.OK, "정상적으로 삭제했습니다.");
     }
 
-    public ResponseData getAddress(MatchingPostDTO.GetAddressDTO getAddressDTO){
-        String address=getMemberAddress(getAddressDTO.getLng(),getAddressDTO.getLat());
-        return new ResponseData(HttpStatus.OK,"주소를 조회했습니다.",address);
+    public ResponseData getAddress(MatchingPostDTO.GetAddressDTO getAddressDTO) {
+        String address = getMemberAddress(getAddressDTO.getLng(), getAddressDTO.getLat());
+        return new ResponseData(HttpStatus.OK, "주소를 조회했습니다.", address);
+    }
+
+    public ResponseData updateViews(MatchingPostDTO.Views views) {
+        Optional<MatchingPost> findMatchingPost = matchingPostRepository.findById(views.getId());
+        if (findMatchingPost != null) {
+            findMatchingPost.get().updateViews();
+        }
+        List<MatchingPost> matchingPostList;
+        matchingPostList = matchingPostRepository.findByRecentPosts("경북 구미시 신평동");
+        List<MatchingPostDTO.ReadSimpleMatchingPostDTO> readDTOList = matchingPostList.stream()
+                .map(matchingPost -> PostToSimpleDTO(matchingPost))
+                .collect(Collectors.toList());
+        if (findMatchingPost != null)
+            return new ResponseData(HttpStatus.OK, "조회수가 1상승했습니다.", readDTOList);
+        else return new ResponseData(HttpStatus.NOT_FOUND, "해당 공고를 찾을 수 없습니다.", null);
     }
 
     // 매칭 공고 조회 -> 사용자 (최신) -> simple 이냐 모두냐
     public ResponseData readRecentPosts(MatchingPostDTO.SearchConditionDTO searchCondition) {
         String address = getMemberAddress(searchCondition.getLng(), searchCondition.getLat());
 
-        System.out.println("address = " + address);
-
         List<MatchingPost> matchingPostList;
 
         if (searchCondition.getCategoryId() == null) {
             matchingPostList = matchingPostRepository.findByRecentPosts(address);
-        }
-        else{
+        } else {
             Category findCategory = categoryRepository.findById(searchCondition.getCategoryId()).get();
 
             matchingPostList = matchingPostRepository.findByRecentCategoryPosts(findCategory, address);
@@ -197,32 +211,30 @@ public class MatchingPostService {
     }
 
 
-    private String getMemberAddress(Double longitude, Double latitude)
-    {
+    private String getMemberAddress(Double longitude, Double latitude) {
         return mapProcess.coordToAddr(longitude, latitude);
     }
 
-    private MatchingPostDTO.ReadSimpleMatchingPostDTO PostToSimpleDTO(MatchingPost matchingPost)
-    {
+    private MatchingPostDTO.ReadSimpleMatchingPostDTO PostToSimpleDTO(MatchingPost matchingPost) {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         SimpleDateFormat registerFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         return MatchingPostDTO.ReadSimpleMatchingPostDTO.builder()
-                    .id(matchingPost.getId())
-                    .categoryName(matchingPost.getCategory()==null?null:matchingPost.getCategory().getName())
-                    .categoryImgAddress(matchingPost.getCategory()==null?null: matchingPost.getCategory().getImgAddress())
-                    .postName(matchingPost.getPostName())
-                    .matchingDate(matchingPost.getMatchingDate().toString())
-                    .matchingTime( matchingPost.getMatchingTime()==null ? null : timeFormat.format(matchingPost.getMatchingTime()))
-                    .recommendedSkill(matchingPost.getRecommendedSkill())
-                    .numberOfPeople(matchingPost.getNumberOfPeople())
-                    .maxNumberOfPeople(matchingPost.getMaxNumberOfPeople())
-                    .inChatNumber( matchingPostCustomRepository.getJoinChatNumber(matchingPost.getId()) )
-                    .views(matchingPost.getViews())
-                    .place(matchingPost.getPlace())
-                    .nickname(matchingPost.getMember()==null ? null : matchingPost.getMember().getNickname())
-                    .profileImgAddress(matchingPost.getMember()==null ? null : matchingPost.getMember().getProfileImgAddress())
-                    .registerDatetime( matchingPost.getRegisterDatetime()==null ? null : registerFormat.format(matchingPost.getRegisterDatetime()) )
+                .id(matchingPost.getId())
+                .categoryName(matchingPost.getCategory() == null ? null : matchingPost.getCategory().getName())
+                .categoryImgAddress(matchingPost.getCategory() == null ? null : matchingPost.getCategory().getImgAddress())
+                .postName(matchingPost.getPostName())
+                .matchingDate(matchingPost.getMatchingDate().toString())
+                .matchingTime(matchingPost.getMatchingTime() == null ? null : timeFormat.format(matchingPost.getMatchingTime()))
+                .recommendedSkill(matchingPost.getRecommendedSkill())
+                .numberOfPeople(matchingPost.getNumberOfPeople())
+                .maxNumberOfPeople(matchingPost.getMaxNumberOfPeople())
+                .inChatNumber(matchingPostCustomRepository.getJoinChatNumber(matchingPost.getId()))
+                .views(matchingPost.getViews())
+                .place(matchingPost.getPlace())
+                .nickname(matchingPost.getMember() == null ? null : matchingPost.getMember().getNickname())
+                .profileImgAddress(matchingPost.getMember() == null ? null : matchingPost.getMember().getProfileImgAddress())
+                .registerDatetime(matchingPost.getRegisterDatetime() == null ? null : registerFormat.format(matchingPost.getRegisterDatetime()))
                 .build();
     }
 
@@ -234,7 +246,7 @@ public class MatchingPostService {
         List<MatchingPostDTO.ReadPostOfAdminDTO> readDTOList = matchingPostList.stream()
                 .map(matchingPost -> MatchingPostDTO.ReadPostOfAdminDTO.builder()
                         .id(matchingPost.getId())
-                        .categoryName(matchingPost.getCategory()==null?null:matchingPost.getCategory().getName())
+                        .categoryName(matchingPost.getCategory() == null ? null : matchingPost.getCategory().getName())
                         .postName(matchingPost.getPostName())
                         .postContents(matchingPost.getPostContents())
                         .place(matchingPost.getPlace())
@@ -281,16 +293,16 @@ public class MatchingPostService {
                 .matchingTime(timeFormat.format(findMatchingPost.get().getMatchingTime()))
                 .recommendedSkill(findMatchingPost.get().getRecommendedSkill())
                 .maxNumberOfPeople(findMatchingPost.get().getMaxNumberOfPeople())
-                .inChatNumber( matchingPostCustomRepository.getJoinChatNumber(findMatchingPost.get().getId()) )
+                .inChatNumber(matchingPostCustomRepository.getJoinChatNumber(findMatchingPost.get().getId()))
                 .views(findMatchingPost.get().getViews())
                 .place(findMatchingPost.get().getPlace())
                 .registerDatetime(registerFormat.format(findMatchingPost.get().getRegisterDatetime()))
-                .chattingRoomId( findChattingRoom.get().getId() )
-                .isMyPost( findMatchingPost.get().getMember()==null ?
-                            false:
-                            (memberId==findMatchingPost.get().getMember().getId() ?
-                                    true:
-                                    false) )
+                .chattingRoomId(findChattingRoom.get().getId())
+                .isMyPost(findMatchingPost.get().getMember() == null ?
+                        false :
+                        (memberId == findMatchingPost.get().getMember().getId() ?
+                                true :
+                                false))
                 .lat(coords[1])
                 .lng(coords[0])
                 .build();
@@ -315,7 +327,8 @@ public class MatchingPostService {
         // 인원수 체크
         Integer inChatNumber = matchingPostCustomRepository.getJoinChatNumber(chattingRoomInDTO.getChattingRoomId());
 
-        if (chattingRoom.get().getMatchingPost().getMaxNumberOfPeople() == inChatNumber) return new ResponseMessage(HttpStatus.NOT_ACCEPTABLE, "현재 최대인원이 가입되어 있습니다.");
+        if (chattingRoom.get().getMatchingPost().getMaxNumberOfPeople() == inChatNumber)
+            return new ResponseMessage(HttpStatus.NOT_ACCEPTABLE, "현재 최대인원이 가입되어 있습니다.");
 
 
         Member member = memberRepository.findById(memberId).get();

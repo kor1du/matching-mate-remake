@@ -19,7 +19,6 @@ const root = ReactDOM.createRoot(
 );
 
 AOSInit();
-console.log("WebPack!");
 root.render(
   <React.StrictMode>
     <Provider store={store}>
