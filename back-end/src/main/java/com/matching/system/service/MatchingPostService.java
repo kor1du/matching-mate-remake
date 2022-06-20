@@ -154,7 +154,7 @@ public class MatchingPostService {
 
     public ResponseData updateViews(MatchingPostDTO.Views views) {
         Optional<MatchingPost> findMatchingPost = matchingPostRepository.findById(views.getId());
-        String address= getMemberAddress(views.getLat(),views.getLng());
+        String address= getMemberAddress(views.getLng(),views.getLat());
         if (findMatchingPost != null) {
             findMatchingPost.get().updateViews();
         }
