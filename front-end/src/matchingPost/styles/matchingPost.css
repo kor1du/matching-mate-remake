@@ -124,8 +124,8 @@
     font-size: 1.5rem;
 }
 
-/* modalPostDetail */
-.modal-post-detail {
+/* modalPost */
+.modal-post {
     font-family: 'Nanum Brush Script', cursive;
     -ms-oveflow-style: none;
 }
@@ -135,46 +135,76 @@
     margin: 1rem 0;
 }
 
-.modal-post-detail .modal-header {
+.modal-post .modal-header {
     display: flex;
     justify-content: center;
 }
 
-.modal-post-detail .modal-header .modal-title {
+.modal-post .modal-header .modal-title {
     font-size: 1.75rem;
 }
 
-.modal-post-detail .modal-header .btn-close {
+.modal-post .modal-header .btn-close {
     position: absolute;
     left: 85%;
 }
 
-.modal-post-detail .modal-body {
+.modal-post .modal-body {
     overflow: scroll;
     max-height: 60vh;
 }
 
-.modal-post-detail .modal-body::-webkit-scrollbar {
+.modal-post .modal-body::-webkit-scrollbar {
     display: none;
     width: 0 !important
 }
 
-.modal-post-detail .modal-body p {
+.modal-post .modal-body p {
     font-size: 1.5rem;
     padding: 5px 0px;
 }
 
-.modal-post-detail .modal-body .btn-join-chat {
+.modal-post .modal-body .btn-join-chat {
     text-align: center;
 }
 
-.modal-post-detail .modal-body .btn-join-chat .btn {
+.modal-post .modal-body .btn-join-chat .btn {
     margin: 10px 0px;
     font-size: 1.5rem;
 }
 
-.modal-post-detail .modal-footer .btn {
+.modal-post .modal-footer .btn {
     font-size: 1.5rem;
+}
+
+.modal-post label {
+    width: 25%;
+    font-size: 1.2rem;
+}
+
+.modal-post input,
+.modal-post select {
+    width: 45%;
+    min-height: 30px;
+    margin: 5px 0px;
+}
+
+.modal-post .place {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.modal-post .btn-address {
+    margin-left: 10px;
+}
+
+.modal-post .btn-address .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    padding: 0 10px;
 }
 
 /* 425px to 599px */
@@ -216,21 +246,38 @@
         font-size: 1.75rem;
     }
 
-    .modal-post-detail .modal-header .modal-title {
+    .modal-post .modal-header .modal-title {
         font-size: 1.9rem;
     }
 
-    .modal-post-detail .modal-body p {
+    .modal-post .modal-body p {
         font-size: 1.75rem;
     }
 
-    .modal-post-detail .modal-body .btn-join-chat .btn {
+    .modal-post .modal-body .btn-join-chat .btn {
         margin: 10px 0px;
         font-size: 1.6rem;
     }
 
-    .modal-post-detail .modal-footer .btn {
+    .modal-post .modal-footer .btn {
         font-size: 1.6rem;
+    }
+
+    .modal-post label {
+        width: 25%;
+        font-size: 1.5rem;
+    }
+
+    .modal-post input,
+    .modal-post select {
+        width: 50%;
+        height: 36px;
+        margin: 7px 0px;
+    }
+
+    .modal-post .btn-address .btn {
+        height: 36px;
+        font-size: 1.5rem;
     }
 }
 
@@ -274,21 +321,39 @@
         font-size: 1.9rem;
     }
 
-    .modal-post-detail .modal-header .modal-title {
+    .modal-post .modal-header .modal-title {
         font-size: 2.1rem;
     }
 
-    .modal-post-detail .modal-body p {
+    .modal-post .modal-body p {
         font-size: 1.9rem;
     }
 
-    .modal-post-detail .modal-body .btn-join-chat .btn {
+    .modal-post .modal-body .btn-join-chat .btn {
         margin: 10px 0px;
         font-size: 1.75rem;
     }
 
-    .modal-post-detail .modal-footer .btn {
+    .modal-post .modal-footer .btn {
         font-size: 1.75rem;
+    }
+
+    .modal-post label {
+        width: 22.5%;
+        font-size: 1.8rem;
+    }
+
+    .modal-post input,
+    .modal-post select {
+        width: 50%;
+        height: 40px;
+        margin: 10px 0px;
+        font-size: 1.8rem;
+    }
+
+    .modal-post .btn-address .btn {
+        height: 40px;
+        font-size: 1.8rem;
     }
 }
 
@@ -328,21 +393,39 @@
         font-size: 2.1rem;
     }
 
-    .modal-post-detail .modal-header .modal-title {
+    .modal-post .modal-header .modal-title {
         font-size: 2.1rem;
     }
 
-    .modal-post-detail .modal-body p {
+    .modal-post .modal-body p {
         font-size: 2.0rem;
     }
 
-    .modal-post-detail .modal-body .btn-join-chat .btn {
+    .modal-post .modal-body .btn-join-chat .btn {
         margin: 10px 0px;
         font-size: 1.9rem;
     }
 
-    .modal-post-detail .modal-footer .btn {
+    .modal-post .modal-footer .btn {
         font-size: 1.9rem;
+    }
+
+    .modal-post label {
+        width: 25%;
+        font-size: 2.1rem;
+    }
+
+    .modal-post input,
+    .modal-post select {
+        width: 50%;
+        height: 40px;
+        margin: 10px 0px;
+        font-size: 2.1rem;
+    }
+
+    .modal-post .btn-address .btn {
+        height: 40px;
+        font-size: 2.1rem;
     }
 }
 
@@ -375,12 +458,17 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
     }
 
     .matching-post .posts .post-list .post {
-        width: 30%;
+        min-width: 35vw;
         padding: 0 2.5%;
         margin: 10px 10px;
+    }
+
+    .matching-post .post-list .post .detail {
+        padding: 0 5vw;
     }
 
     .matching-post .posts .post-list .post .detail p {
@@ -391,20 +479,39 @@
         font-size: 2.2rem;
     }
 
-    .modal-post-detail .modal-header .modal-title {
+    .modal-post .modal-header .modal-title {
         font-size: 2.5rem;
     }
 
-    .modal-post-detail .modal-body p {
+    .modal-post .modal-body p {
         font-size: 2.2rem;
     }
 
-    .modal-post-detail .modal-body .btn-join-chat .btn {
+    .modal-post .modal-body .btn-join-chat .btn {
         margin: 10px 0px;
         font-size: 1.9rem;
     }
 
-    .modal-post-detail .modal-footer .btn {
+    .modal-post .modal-footer .btn {
         font-size: 1.9rem;
+    }
+
+    .modal-post label {
+        width: 27.5%;
+        font-size: 2.3rem;
+    }
+
+    .modal-post input,
+    .modal-post select {
+        width: 50%;
+        height: 40px;
+        margin: 10px 0px;
+        font-size: 2.3rem;
+    }
+
+    .modal-post .btn-address .btn {
+        width: 110px;
+        height: 40px;
+        font-size: 2.3rem;
     }
 }

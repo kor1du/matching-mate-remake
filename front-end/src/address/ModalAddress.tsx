@@ -1,16 +1,24 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import "../styles/modalAddress.css";
-import DaumPostCode from "./DaumPostCode";
-import { User } from "./SignupPage";
+import "./modalAddress.css";
+import ModalDaumPostCode from "./ModalDaumPostCode";
+import { User } from "../login/views/SignupPage";
+import { NewPost } from "../matchingPost/components/CreatePost";
 
-interface AddressModalProps {
-  user: User;
-  setUser: Dispatch<SetStateAction<User>>;
+interface ModalAddressProps {
+  user?: User;
+  setUser?: Dispatch<SetStateAction<User>>;
+  newPost?: NewPost;
+  setNewPost?: Dispatch<SetStateAction<NewPost>>;
 }
 
-const AddressModal: React.FC<AddressModalProps> = ({ user, setUser }) => {
+const ModalAddress: React.FC<ModalAddressProps> = ({
+  user,
+  setUser,
+  newPost,
+  setNewPost,
+}) => {
   const [show, setShow] = useState<boolean>(false);
 
   const handleClose = () => setShow(false);
@@ -33,11 +41,19 @@ const AddressModal: React.FC<AddressModalProps> = ({ user, setUser }) => {
           <Modal.Title>주소찾기</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <DaumPostCode
-            user={user}
-            setUser={setUser}
-            setShow={setShow}
-          ></DaumPostCode>
+          {user !== undefined || null ? (
+            <ModalDaumPostCode
+              user={user}
+              setUser={setUser}
+              setShow={setShow}
+            ></ModalDaumPostCode>
+          ) : (
+            <ModalDaumPostCode
+              newPost={newPost}
+              setNewPost={setNewPost}
+              setShow={setShow}
+            ></ModalDaumPostCode>
+          )}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -49,4 +65,4 @@ const AddressModal: React.FC<AddressModalProps> = ({ user, setUser }) => {
   );
 };
 
-export default AddressModal;
+export default ModalAddress;

@@ -6,6 +6,7 @@ interface PostItemPropse {
   post: Post;
   posts: Array<Post>;
   setPosts: Function;
+  children?: JSX.Element | JSX.Element[];
 }
 
 const PostItem: React.FC<PostItemPropse> = ({ post, posts, setPosts }) => {
@@ -20,7 +21,8 @@ const PostItem: React.FC<PostItemPropse> = ({ post, posts, setPosts }) => {
         <p>추천 실력 : {post.recommendedSkill}</p>
         <p>장소 : {post.place}</p>
         <p>조회수 : {post.views}</p>
-        <p>등록일 : {post.matchingDate + " " + post.matchingTime}</p>
+        <p>매칭 날짜 : {post.matchingDate.toString()}</p>
+        <p>매칭 시간 : {post.matchingTime}</p>
       </div>
       <ModalPostDetail
         post={post}

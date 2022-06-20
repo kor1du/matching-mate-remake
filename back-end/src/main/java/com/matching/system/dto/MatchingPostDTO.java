@@ -161,6 +161,8 @@ public class MatchingPostDTO {
     @Builder
     public static class Views{
         private Long id;
+        private Double lat;
+        private Double lng;
         private Long views;
     }
 }

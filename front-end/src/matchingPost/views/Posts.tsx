@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux";
 import GetPosts, { Post } from "../components/GetPosts";
+import ModalPostCreate from "./ModalPostCreate";
 import PostItem from "./PostItem";
 
 const Posts: React.FC = () => {
@@ -38,6 +39,7 @@ const Posts: React.FC = () => {
   return (
     <div className="posts">
       <p className="title">공고목록</p>
+      <ModalPostCreate></ModalPostCreate>
       <div className="post-list">
         {categoryRedux.length === 0 || categoryRedux === "전체"
           ? posts.map((post) => {

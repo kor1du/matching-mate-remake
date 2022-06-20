@@ -154,11 +154,12 @@ public class MatchingPostService {
 
     public ResponseData updateViews(MatchingPostDTO.Views views) {
         Optional<MatchingPost> findMatchingPost = matchingPostRepository.findById(views.getId());
+        String address= getMemberAddress(views.getLat(),views.getLng());
         if (findMatchingPost != null) {
             findMatchingPost.get().updateViews();
         }
         List<MatchingPost> matchingPostList;
-        matchingPostList = matchingPostRepository.findByRecentPosts("경북 구미시 신평동");
+        matchingPostList = matchingPostRepository.findByRecentPosts(address);
         List<MatchingPostDTO.ReadSimpleMatchingPostDTO> readDTOList = matchingPostList.stream()
                 .map(matchingPost -> PostToSimpleDTO(matchingPost))
                 .collect(Collectors.toList());

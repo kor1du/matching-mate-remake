@@ -22,7 +22,6 @@ const HomepageHeader: React.FC = () => {
         >
           운동메이트 찾기
         </Button>
-        <Button className="recruit-mate">운동메이트 모집하기</Button>
       </div>
     </div>
   );

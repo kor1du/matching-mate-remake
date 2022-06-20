@@ -36,7 +36,7 @@ const ModalPostDetail: React.FC<ModalPostDetailprops> = ({
         show={show}
         onHide={handleClose}
         centered
-        className="modal-post-detail"
+        className="modal-post-detail modal-post"
       >
         <Modal.Header closeButton>
           <Modal.Title>공고 상세보기</Modal.Title>

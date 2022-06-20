@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import ShowPage from "../components/ShowPage";
 import "../styles/signupPage.css";
-import AddressModal from "./ModalAddress";
+import AddressModal from "../../address/ModalAddress";
 import CheckIDModal from "./ModalCheckID";
 import EmoticonParty from "../images/emoticon-party.png";
 import CheckNicknameModal from "./ModalCheckNickname";

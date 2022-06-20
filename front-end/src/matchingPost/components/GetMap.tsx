@@ -1,6 +1,6 @@
 import axios from "axios";
 
-interface Position {
+export interface Position {
   lat: number;
   lng: number;
 }

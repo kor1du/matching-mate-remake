@@ -11,7 +11,6 @@ import "hover.css/css/hover.css";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "./redux/index";
-import * as _ from "lodash";
 
 const store = createStore(rootReducer);
 const root = ReactDOM.createRoot(
@@ -19,6 +18,7 @@ const root = ReactDOM.createRoot(
 );
 
 AOSInit();
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
