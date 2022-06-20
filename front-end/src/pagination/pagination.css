@@ -1,0 +1,44 @@
+.pagination .btn {
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+/* 425px to 599px */
+@media screen and (min-width:425px) and (max-width:599px) {
+    .pagination .btn {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* 600px to 767px */
+@media screen and (min-width:600px) and (max-width:767px) {
+    .pagination .btn {
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* 768px to 1023px */
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .pagination .btn {
+        font-size: 2.5rem;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* 1024px to ~px */
+@media screen and (min-width:1024px) {
+    .pagination .btn {
+        font-size: 3rem;
+        width: 70px;
+        height: 70px;
+    }
+}

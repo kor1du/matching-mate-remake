@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Pagination from "../../pagination/Pagination";
 import { RootState } from "../../redux";
 import GetPosts, { Post } from "../components/GetPosts";
 import ModalPostCreate from "./ModalPostCreate";
@@ -30,6 +31,10 @@ const Posts: React.FC = () => {
     },
   ]);
 
+  const [limit, setLimit] = useState<number>(4);
+  const [page, setPage] = useState<number>(1);
+  const offset = (page - 1) * limit;
+
   useEffect(() => {
     GetPosts().then((res) => {
       setPosts(res);
@@ -42,7 +47,7 @@ const Posts: React.FC = () => {
       <ModalPostCreate></ModalPostCreate>
       <div className="post-list">
         {categoryRedux.length === 0 || categoryRedux === "전체"
-          ? posts.map((post) => {
+          ? posts.slice(offset, offset + limit).map((post) => {
               return (
                 <PostItem
                   key={post.id}
@@ -52,7 +57,7 @@ const Posts: React.FC = () => {
                 ></PostItem>
               );
             })
-          : posts.map((post) => {
+          : posts.slice(offset, offset + limit).map((post) => {
               if (post.categoryName === categoryRedux)
                 return (
                   <PostItem
@@ -64,6 +69,12 @@ const Posts: React.FC = () => {
                 );
             })}
       </div>
+      <Pagination
+        total={posts.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      />
     </div>
   );
 };
