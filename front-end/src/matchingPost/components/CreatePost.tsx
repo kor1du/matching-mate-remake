@@ -18,7 +18,7 @@ export default function CreatePost(newPost: NewPost): void {
 
 function postData(newPost: NewPost): void {
   axios
-    .post("http://kor1du.gonetis.com:8080/matchingPost/create", newPost, {
+    .post("http://localhost:8080/matchingPost/create", newPost, {
       headers: {
         Authorization: "bearer " + sessionStorage.getItem("accessToken"),
       },

@@ -9,7 +9,7 @@ export default async function UpdateViews(post: Post, setPost: Function) {
 
 function updateData(post: Post, setPost: Function, coordinator: Position) {
   axios
-    .put("http://kor1du.gonetis.com:8080/matcingPost/update/views", {
+    .put("http://localhost:8080/matcingPost/update/views", {
       id: post.id,
       lat: coordinator.lat,
       lng: coordinator.lng,

@@ -8,7 +8,7 @@ export default function Logout() {
 
 function postLogout(): void {
   axios.post(
-    "http://kor1du.gonetis.com:8080/logout",
+    "http://localhost:8080/logout",
     {},
     {
       headers: {

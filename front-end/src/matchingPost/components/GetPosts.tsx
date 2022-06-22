@@ -28,7 +28,7 @@ async function getData() {
   const position = await getCoordinate();
 
   const data = axios
-    .get("http://kor1du.gonetis.com:8080/recent", {
+    .get("http://localhost:8080/recent", {
       params: {
         Authorization: token,
         lat: position.lat,

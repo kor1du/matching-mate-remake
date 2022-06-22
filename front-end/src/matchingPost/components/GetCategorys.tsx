@@ -11,10 +11,8 @@ export default async function GetCategorys() {
 }
 
 function getData(): any {
-  const categorys = axios
-    .get("http://kor1du.gonetis.com:8080/category")
-    .then((res) => {
-      return res.data.data;
-    });
+  const categorys = axios.get("http://localhost:8080/category").then((res) => {
+    return res.data.data;
+  });
   return categorys;
 }

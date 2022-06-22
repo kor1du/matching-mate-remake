@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Nav from "./nav/nav";
+import Nav from "./nav/Nav";
 import "bootstrap/dist/css/bootstrap.css";
 import "./global.css";
 import AOSInit from "./AOS";

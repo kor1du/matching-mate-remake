@@ -9,7 +9,7 @@ export default function Signup(user: User): Promise<boolean> {
 
 /* 서버에 회원가입 요청 */
 function postSignup(user: User): Promise<Object> {
-  return axios.post("http://kor1du.gonetis.com:8080/signUp", user);
+  return axios.post("http://localhost:8080/signUp", user);
 }
 
 /* 서버에서 받아온 회원가입 결과를 넘기는 함수 */
