@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Homepage from "./homepage/homepage";
-import Login from "./login/loginSignup";
-import MatchingPost from "./matchingPost/matchingPost";
+import Chatting from "./chatting/Chatting";
+import Homepage from "./homepage/Homepage";
+import Login from "./login/LoginSignup";
+import MatchingPost from "./matchingPost/MatchingPost";
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/matching/post" element={<MatchingPost />}></Route>
+        <Route path="/chatting" element={<Chatting />}></Route>
       </Routes>
     </div>
   );

@@ -30,7 +30,7 @@ const NavProfile: React.FC = () => {
             <p className="greeting">안녕하세요 {profile.nickname}님!</p>
             <Link to="/matching/post">매칭공고</Link>
             <Link to="#">매칭프로필</Link>
-            <Link to="#">채팅</Link>
+            <Link to="/chatting">채팅</Link>
             <Link to="#" onClick={Logout}>
               로그아웃
             </Link>
