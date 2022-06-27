@@ -30,7 +30,6 @@ public class ChattingDTO {
         private Integer roomNumberOfPeople;
         private String registerDatetime;
         private String categoryImgAddress;
-        private Integer noReadChatCount;
         private String modifiedDatetime;
 
         private Integer isCompleted;

@@ -1,23 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChattingList } from "../components/GetChattingList";
 
 interface itemProps {
   item: ChattingList;
 }
-const item: React.FC<itemProps> = ({ item }) => {
-  console.log(item);
+const Item: React.FC<itemProps> = ({ item }) => {
+  const navigate = useNavigate();
   return (
-    <Link to="/">
-      <div className="chatting-list-item">
-        <img src={item.categoryImgAddress} alt="" />
-        <div className="title">{item.matchingPostName}</div>
-        <div className="number-people">
-          {item.numberOfPeople} / {item.maxNumberOfPeople}
-        </div>
-        <div className="count-chat">{item.noReadChatCount}</div>
+    <div
+      className="chatting-list-item"
+      onClick={(e) => {
+        e.preventDefault();
+        window.location.replace("/chatting/room");
+        navigate("/chatting/room", { state: item.id });
+      }}
+    >
+      <img src={item.categoryImgAddress} alt="" />
+      <div className="title">{item.matchingPostName}</div>
+      <div className="number-people">
+        {item.numberOfPeople} / {item.maxNumberOfPeople}
       </div>
-    </Link>
+    </div>
   );
 };
 
-export default item;
+export default Item;

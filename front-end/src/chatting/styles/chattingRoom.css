@@ -1,0 +1,252 @@
+.chatting-room {
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    align-items: flex-start;
+}
+
+.chatting-room .img-bar {
+    position: absolute;
+    z-index: 11;
+    right: 10px;
+    border-radius: 0;
+    width: 30px;
+    height: 30px;
+    top: 60px;
+}
+
+.chatting-room .left {
+    display: none;
+}
+
+.chatting-room .left.active {
+    padding: 10px 20px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nanum Brush Script', cursive;
+    overflow: scroll;
+}
+
+.chatting-room .left .item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.chatting-room .left {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.chatting-room .left::-webkit-scrollbar {
+    display: none;
+    /* Chrome , Safari , Opera */
+}
+
+.chatting-room .left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.chatting-room .left span {
+    font-size: 1.8rem;
+    margin-right: 20px;
+}
+
+.chatting-room .right {
+    display: block;
+    height: calc(100vh - 50px);
+    overflow: scroll;
+}
+
+.chatting-room .right.active {
+    display: none;
+}
+
+.chatting-room .right {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.chatting-room .right::-webkit-scrollbar {
+    display: none;
+    /* Chrome , Safari , Opera */
+}
+
+.chatting-room .right .messages {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+    font-family: 'Nanum Brush Script', cursive;
+    width: 100vw;
+}
+
+.chatting-room .right .messages .item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0px;
+}
+
+.chatting-room .right .messages .item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.chatting-room .right .messages .item h1 {
+    padding: 0 5px;
+    margin: 0;
+    border-radius: 15%;
+}
+
+.chatting-room .right .messages .me {
+    justify-content: flex-end;
+}
+
+.chatting-room .right .messages .me h1 {
+    background-color: #FF9F29;
+}
+
+.chatting-room .right .messages .other h1 {
+    background: black;
+    color: white;
+}
+
+.chatting-room .right .send {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.chatting-room .right .send .btn {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* 425px to 599px */
+@media screen and (min-width:425px) and (max-width:599px) {
+    .chatting-room .left img {
+        width: 60px;
+        height: 60px;
+        margin-right: 25px;
+    }
+
+    .chatting-room .left span {
+        font-size: 2.0rem;
+        margin-right: 25px;
+    }
+
+    .chatting-room .img-bar {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* 600px to 767px */
+@media screen and (min-width:600px) and (max-width:767px) {
+    .chatting-room .left img {
+        width: 70px;
+        height: 70px;
+        margin-right: 30px;
+    }
+
+    .chatting-room .left span {
+        font-size: 2.3rem;
+        margin-right: 30px;
+    }
+
+    .chatting-room .img-bar {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* 768px to 1023px */
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .chatting-room .left img {
+        width: 80px;
+        height: 80px;
+        margin-right: 35px;
+    }
+
+    .chatting-room .left span {
+        font-size: 2.7rem;
+        margin-right: 35px;
+    }
+
+    .chatting-room .img-bar {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* 1024px to ~px */
+@media screen and (min-width:1024px) {
+    .chatting-room .left {
+        padding: 10px 20px;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Nanum Brush Script', cursive;
+        overflow: scroll;
+    }
+
+    .chatting-room .left.active {
+        padding: 10px 20px;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Nanum Brush Script', cursive;
+        overflow: scroll;
+    }
+
+    .chatting-room .right {
+        display: block;
+        height: calc(100vh - 50px);
+        width: 50vw;
+        overflow: scroll;
+    }
+
+    .chatting-room .left {
+        width: 50vw;
+    }
+
+    .chatting-room .left img {
+        width: 90px;
+        height: 90px;
+        margin-right: 40px;
+    }
+
+    .chatting-room .left span {
+        font-size: 3.5rem;
+        margin-right: 40px;
+    }
+
+    .chatting-room .img-bar {
+        display: none;
+    }
+
+    .chatting-room .messages {
+        width: 50vw !important;
+    }
+}

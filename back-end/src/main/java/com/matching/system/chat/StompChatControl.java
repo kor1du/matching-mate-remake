@@ -20,6 +20,7 @@ public class StompChatControl {
     // 입장
     @MessageMapping(value = "/chat/enter")
     public void enter(@RequestBody ChattingDTO.SendMessageDTO sendMessageDTO) {
+        System.out.println("RoomID : "+sendMessageDTO.getRoomId());
         Long memberId = jwtTokenUtil.getMemberId(jwtTokenUtil.resolveToken(sendMessageDTO.getToken()));
 
         simpMessagingTemplate.convertAndSend("/sub/chat/in/" + sendMessageDTO.getRoomId(), new ChattingDTO.ServerResponse("새 멤버 입장함", "server"));
@@ -32,7 +33,7 @@ public class StompChatControl {
 
         ChattingDTO.ReadChattingMessageDTO responseMessageDTO = chattingService.sendMessage(sendMessageDTO, memberId);
 
-        simpMessagingTemplate.convertAndSend("/sub/chat/in/" + sendMessageDTO.getRoomId(), responseMessageDTO);
+        simpMessagingTemplate.convertAndSend("/sub/chat/in/2", responseMessageDTO);
     }
 
     // ready 상태

@@ -1,4 +1,4 @@
-.chatting .chatting-list {
+.chatting-list .chatting-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,7 +6,7 @@
 
 }
 
-.chatting .chatting-list-item {
+.chatting-list .chatting-list-item {
     padding: 20px 20px;
     font-family: 'Nanum Brush Script', cursive;
     font-size: 1.5rem;
@@ -16,41 +16,30 @@
     color: black;
 }
 
-.chatting .chatting-list-item img {
+.chatting-list .chatting-list-item img {
     width: 50px;
     height: 50px;
 }
 
-.chatting .chatting-list-item .title {
+.chatting-list .chatting-list-item .title {
     padding: 0 20px;
     width: 40vw;
     text-align: center;
 }
 
-.chatting .chatting-list-item .number-people {
+.chatting-list .chatting-list-item .number-people {
     padding: 0 20px;
     width: 25vw;
 }
 
-.chatting .chatting-list-item .count-chat {
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    color: white;
-}
-
 /* 425px to 599px */
 @media screen and (min-width:425px) and (max-width:599px) {
-    .chatting .chatting-list-item {
+    .chatting-list .chatting-list-item {
         padding: 20px 50px;
         font-size: 1.7rem;
     }
 
-    .chatting .chatting-list-item img {
+    .chatting-list .chatting-list-item img {
         width: 55px;
         height: 55px;
     }
@@ -58,12 +47,12 @@
 
 /* 600px to 767px */
 @media screen and (min-width:600px) and (max-width:767px) {
-    .chatting .chatting-list-item {
+    .chatting-list .chatting-list-item {
         padding: 20px 70px;
         font-size: 1.8rem;
     }
 
-    .chatting .chatting-list-item img {
+    .chatting-list .chatting-list-item img {
         width: 60px;
         height: 60px;
     }
@@ -71,12 +60,12 @@
 
 /* 768px to 1023px */
 @media screen and (min-width:768px) and (max-width:1023px) {
-    .chatting .chatting-list-item {
+    .chatting-list .chatting-list-item {
         padding: 20px 100px;
         font-size: 2.0rem;
     }
 
-    .chatting .chatting-list-item img {
+    .chatting-list .chatting-list-item img {
         width: 65px;
         height: 65px;
     }
@@ -84,13 +73,13 @@
 
 /* 1024px to ~px */
 @media screen and (min-width:1024px) {
-    .chatting .chatting-list-item {
+    .chatting-list .chatting-list-item {
         padding: 20px 150px;
         max-width: 1440px;
         font-size: 2.2rem;
     }
 
-    .chatting .chatting-list-item img {
+    .chatting-list .chatting-list-item img {
         width: 75px;
         height: 75px;
     }

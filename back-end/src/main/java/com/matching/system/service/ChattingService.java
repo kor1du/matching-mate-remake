@@ -77,21 +77,10 @@ public class ChattingService {
                         .roomNumberOfPeople(chattingRoom.getChattingMemberList().size())
                         .registerDatetime(registerFormat.format(chattingRoom.getRegisterDatetime()))
                         .isCompleted(chattingRoom.getMatchingPost() == null ? null : chattingRoom.getMatchingPost().getIsCompleted())
-                        .noReadChatCount(
-                                chattingRoom.getChattingMessageList().stream()
-                                        .filter(chattingMessage -> chattingMessage.getRegisterDatetime().compareTo(
-                                                chattingRoom.getChattingMemberList().stream()
-                                                        .filter(chattingMember -> chattingMember.getChattingRoom().getId().equals(chattingRoom.getId()) && chattingMember.getMember().getId().equals(memberId) == true)
-                                                        .collect(Collectors.toList()).stream().findFirst().get().getOutDatetime()
-                                        ) == 1)
-                                        .collect(Collectors.toList())
-                                        .size()
-                        )
                         .modifiedDatetime(dateFormat.format(chattingRoom.getModifiedDatetime()))
                         .build())
                 .sorted(Comparator.comparing(ChattingDTO.ChattingRoomListDTO::getModifiedDatetime).reversed())
                 .collect(Collectors.toList());
-
         return new ResponseData(HttpStatus.OK, "정상적으로 조회되었습니다.", chattingRoomListDTOList);
     }
 

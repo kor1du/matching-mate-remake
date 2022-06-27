@@ -9,7 +9,6 @@ export interface ChattingList {
   maxNumberOfPeople: number;
   modifiedDatetime: string;
   myChattingMemberId: number;
-  noReadChatCount: number;
   numberOfPeople: number;
   registerDatetime: string;
   roomNumberOfPeople: number;

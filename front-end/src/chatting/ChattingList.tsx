@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import GetChattingList, { ChattingList } from "../components/GetChattingList";
-import ChattingListItem from "./ChattingListItem";
-import "../styles/chattingList.css";
+import GetChattingList, { ChattingList } from "./components/GetChattingList";
+import ChattingListItem from "./views/ChattingListItem";
+import "./styles/chattingList.css";
 
 const ChattingList: React.FC = () => {
   const [chattingList, setChattingList] = useState<Array<ChattingList>>([
@@ -14,7 +14,6 @@ const ChattingList: React.FC = () => {
       maxNumberOfPeople: 0,
       modifiedDatetime: "",
       myChattingMemberId: 0,
-      noReadChatCount: 0,
       numberOfPeople: 0,
       registerDatetime: "",
       roomNumberOfPeople: 0,
