@@ -312,21 +312,24 @@ public class MatchingPostService {
     }
 
     // 채팅방 가입하기
-    public ResponseMessage joinChatting(ChattingDTO.ChattingRoomInDTO chattingRoomInDTO, String token) {
+    public ResponseMessage join(MatchingPostDTO.JoinDTO matchingPostID, String token) {
         Long memberId = jwtTokenUtil.getMemberId(jwtTokenUtil.resolveToken(token));
 
-        // 이미 가입 여부 확인
-        Optional<ChattingMember> validateDuplicateRoom = chattingMemberRepository.findByChattingRoomIdAndMemberId(chattingRoomInDTO.getChattingRoomId(), memberId);
-        if (validateDuplicateRoom.isPresent()) return new ResponseMessage(HttpStatus.CONFLICT, "이미 방에 가입되어 있습니다.");
-
+//        // 이미 가입 여부 확인
+//        Optional<ChattingMember> validateDuplicateRoom = chattingMemberRepository.findByChattingRoomIdAndMemberId(chattingRoomInDTO.getChattingRoomId(), memberId);
+//        if (validateDuplicateRoom.isPresent()) return new ResponseMessage(HttpStatus.CONFLICT, "이미 방에 가입되어 있습니다.");
+//
 //        matchingPostRepository.findById(chattingRoomInDTO.getMatchingPostId());
 
-        // chatting_member 추가
-        Optional<ChattingRoom> chattingRoom = chattingRoomRepository.existRoom(chattingRoomInDTO.getChattingRoomId());
+        //타겟이될 공고 검색
+        Optional<MatchingPost> matchingPost=matchingPostRepository.findById(matchingPostID.getMatchingPostId());
+
+        // 타겟이될 채팅방 검색
+        Optional<ChattingRoom> chattingRoom = chattingRoomRepository.findByMatchingPostId(matchingPostID.getMatchingPostId());
         if (chattingRoom.isEmpty()) return new ResponseMessage(HttpStatus.NOT_FOUND, "검색한 채팅 방이 존재하지 않습니다.");
 
         // 인원수 체크
-        Integer inChatNumber = matchingPostCustomRepository.getJoinChatNumber(chattingRoomInDTO.getChattingRoomId());
+        Integer inChatNumber = (matchingPost.get().getNumberOfPeople());
 
         if (chattingRoom.get().getMatchingPost().getMaxNumberOfPeople() == inChatNumber)
             return new ResponseMessage(HttpStatus.NOT_ACCEPTABLE, "현재 최대인원이 가입되어 있습니다.");
@@ -340,6 +343,9 @@ public class MatchingPostService {
                 .outDatetime(new Date())
                 .isReady(false)
                 .build());
+
+        //현재인원 1 상승
+        matchingPost.get().updatePlusNumberOfPeople();
 
         return new ResponseMessage(HttpStatus.OK, "정상적으로 처리되었습니다.");
     }

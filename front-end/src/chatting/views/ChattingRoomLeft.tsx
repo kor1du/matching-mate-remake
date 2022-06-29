@@ -11,7 +11,7 @@ const ChattingRoomLeft: React.FC<ChattingRoomLeftProps> = ({ member }) => {
     <div className="item">
       <img src={member.profileImgAddress} alt="img-member" />
       <span>{member.nickname}</span>
-      {member.priority === 2 ? <img src={Crown} alt="img-host" /> : null}
+      {member.priority === 1 ? <img src={Crown} alt="img-host" /> : null}
     </div>
   );
 };

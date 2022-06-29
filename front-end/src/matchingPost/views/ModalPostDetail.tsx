@@ -3,6 +3,7 @@ import { Button, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux";
 import { Post } from "../components/GetPosts";
+import Join from "../components/Join";
 import UpdateViews from "../components/UpdateViews";
 
 interface ModalPostDetailprops {
@@ -49,7 +50,15 @@ const ModalPostDetail: React.FC<ModalPostDetailprops> = ({ post, posts, setPosts
           <p>조회수 : {post.views}</p>
           <p>채팅방 인원 : {post.inChatNumber}</p>
           <div className="btn-join-chat">
-            <Button variant="success">채팅방 참여하기</Button>
+            <Button
+              variant="success"
+              onClick={(e) => {
+                e.preventDefault();
+                Join(post.id);
+              }}
+            >
+              참여하기
+            </Button>
           </div>
         </Modal.Body>
         <Modal.Footer>

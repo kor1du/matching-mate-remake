@@ -117,9 +117,8 @@ public class MatchingPostDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
-    public static class JoinChattingRoom {
+    public static class JoinDTO{
         private Long matchingPostId;
-        private Long memberId;
     }
 
     @Getter

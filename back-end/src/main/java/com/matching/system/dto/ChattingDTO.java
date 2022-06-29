@@ -38,14 +38,6 @@ public class ChattingDTO {
 
     @Getter     @Builder    @Setter
     @NoArgsConstructor    @AllArgsConstructor
-    public static class ChattingRoomInDTO
-    {
-        public Long chattingRoomId;
-    }
-
-
-    @Getter     @Builder    @Setter
-    @NoArgsConstructor    @AllArgsConstructor
     public static class SendMessageDTO
     {
         public String token;

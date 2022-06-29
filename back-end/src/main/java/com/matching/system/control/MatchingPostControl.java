@@ -109,11 +109,11 @@ public class MatchingPostControl {
     }
 
     // 매칭 공고 채팅방 들어가기       -> O
-    @PostMapping(value = "/matchingPost/detail/joinChat")
-    public ResponseEntity joinChatting(@RequestBody ChattingDTO.ChattingRoomInDTO chattingRoomInDTO,
+    @PostMapping(value = "/matchingPost/join")
+    public ResponseEntity joinChatting(@RequestBody MatchingPostDTO.JoinDTO matchingPostID,
                                        @RequestHeader("Authorization") String token)
     {
-        ResponseMessage responseMessage = matchingPostService.joinChatting(chattingRoomInDTO, token);
+        ResponseMessage responseMessage = matchingPostService.join(matchingPostID, token);
 
         return ResponseEntity
                 .status(responseMessage.getStatus())
