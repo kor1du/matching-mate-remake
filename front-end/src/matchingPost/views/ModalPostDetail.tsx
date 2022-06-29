@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux";
 import { Post } from "../components/GetPosts";
 import UpdateViews from "../components/UpdateViews";
 
@@ -9,22 +11,20 @@ interface ModalPostDetailprops {
   setPosts: Function;
 }
 
-const ModalPostDetail: React.FC<ModalPostDetailprops> = ({
-  post,
-  posts,
-  setPosts,
-}) => {
+const ModalPostDetail: React.FC<ModalPostDetailprops> = ({ post, posts, setPosts }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const position = useSelector((state: RootState) => state.MatchinPostRedux.position);
 
   return (
     <>
       <Button
         variant="primary"
         onClick={() => {
-          UpdateViews(post, setPosts);
+          UpdateViews(post, setPosts, position);
           handleShow();
         }}
         className="btn-detail"
@@ -32,12 +32,7 @@ const ModalPostDetail: React.FC<ModalPostDetailprops> = ({
         상세보기
       </Button>
 
-      <Modal
-        show={show}
-        onHide={handleClose}
-        centered
-        className="modal-post-detail modal-post"
-      >
+      <Modal show={show} onHide={handleClose} centered className="modal-post-detail modal-post">
         <Modal.Header closeButton>
           <Modal.Title>공고 상세보기</Modal.Title>
         </Modal.Header>

@@ -7,9 +7,8 @@ import ModalPostCreate from "./ModalPostCreate";
 import PostItem from "./PostItem";
 
 const Posts: React.FC = () => {
-  const categoryRedux = useSelector(
-    (state: RootState) => state.CategoryRedux.category
-  );
+  const categoryRedux = useSelector((state: RootState) => state.CategoryRedux.category);
+  const position = useSelector((state: RootState) => state.MatchinPostRedux.position);
 
   const [posts, setPosts] = useState<Array<Post>>([
     {
@@ -36,10 +35,10 @@ const Posts: React.FC = () => {
   const offset = (page - 1) * limit;
 
   useEffect(() => {
-    GetPosts().then((res) => {
+    GetPosts(position).then((res) => {
       setPosts(res);
     });
-  }, []);
+  }, [position]);
 
   return (
     <div className="posts">
@@ -48,33 +47,13 @@ const Posts: React.FC = () => {
       <div className="post-list">
         {categoryRedux.length === 0 || categoryRedux === "전체"
           ? posts.slice(offset, offset + limit).map((post) => {
-              return (
-                <PostItem
-                  key={post.id}
-                  post={post}
-                  posts={posts}
-                  setPosts={setPosts}
-                ></PostItem>
-              );
+              return <PostItem key={post.id} post={post} posts={posts} setPosts={setPosts}></PostItem>;
             })
           : posts.slice(offset, offset + limit).map((post) => {
-              if (post.categoryName === categoryRedux)
-                return (
-                  <PostItem
-                    key={post.id}
-                    post={post}
-                    posts={posts}
-                    setPosts={setPosts}
-                  ></PostItem>
-                );
+              if (post.categoryName === categoryRedux) return <PostItem key={post.id} post={post} posts={posts} setPosts={setPosts}></PostItem>;
             })}
       </div>
-      <Pagination
-        total={posts.length}
-        limit={limit}
-        page={page}
-        setPage={setPage}
-      />
+      <Pagination total={posts.length} limit={limit} page={page} setPage={setPage} />
     </div>
   );
 };

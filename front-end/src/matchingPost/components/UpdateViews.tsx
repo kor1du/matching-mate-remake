@@ -2,9 +2,8 @@ import axios from "axios";
 import { getCoordinate, Position } from "./GetMap";
 import { Post } from "./GetPosts";
 
-export default async function UpdateViews(post: Post, setPost: Function) {
-  const coordinator: Position = await getCoordinate();
-  updateData(post, setPost, coordinator);
+export default async function UpdateViews(post: Post, setPost: Function, position: any) {
+  updateData(post, setPost, position);
 }
 
 function updateData(post: Post, setPost: Function, coordinator: Position) {

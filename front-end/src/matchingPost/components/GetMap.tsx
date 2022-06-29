@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setPosition } from "../../redux/MatchingPostRedux";
 
 export interface Position {
   lat: number;
@@ -7,12 +8,12 @@ export interface Position {
 
 const kakao = (window as any).kakao;
 
-export default async function GetMap(setAddress: any) {
+export default async function GetMap(setAddress: any, dispatch: any) {
   const map: any = createMap(); /* 맵 생성 */
-  const coordinate: Position = await getCoordinate(); /* 현재 좌표 */
+  const coordinate: Position = await getCoordinate(dispatch); /* 현재 좌표 */
   const marker: any = createMarker(map, coordinate); /* 마커 생성 */
   getAddress(coordinate, setAddress); /* 초기 주소 설정 */
-  addMarkerDragEvent(marker, setAddress); /* 마커 이동시 실시간 위치 조회 */
+  addMarkerDragEvent(marker, setAddress, dispatch); /* 마커 이동시 실시간 위치 조회 */
 }
 
 /* 화면에 보일 지도 생성 */
@@ -27,7 +28,7 @@ function createMap(): object {
 }
 
 /* 현재 위치 저장 */
-export function getCoordinate(): any {
+export function getCoordinate(dispatch: any): any {
   return new Promise((resolve) => {
     if (navigator.geolocation) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -36,6 +37,8 @@ export function getCoordinate(): any {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
+
+        dispatch(setPosition(coordinate));
         resolve(coordinate);
       });
     } else {
@@ -82,7 +85,7 @@ function getAddress(position: Position, setAddress: any): void {
 }
 
 /* 마커 드래그 이벤트 추가 (실시간 위치 조회)*/
-function addMarkerDragEvent(marker: any, setAddress: any): void {
+function addMarkerDragEvent(marker: any, setAddress: any, dispatch: any): void {
   marker.setDraggable(true);
 
   kakao.maps.event.addListener(marker, "dragend", async function () {
@@ -91,6 +94,8 @@ function addMarkerDragEvent(marker: any, setAddress: any): void {
       lat: marker.getPosition().getLat(),
       lng: marker.getPosition().getLng(),
     };
+
+    dispatch(setPosition(position));
 
     getAddress(position, setAddress);
   });

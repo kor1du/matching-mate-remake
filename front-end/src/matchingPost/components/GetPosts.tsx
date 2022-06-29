@@ -18,14 +18,13 @@ export interface Post {
   registerDatetime: string;
   views: number;
 }
-export default async function GetPosts() {
-  const posts: Array<Post> = await getData();
+export default async function GetPosts(position: any) {
+  const posts: Array<Post> = await getData(position);
   return posts;
 }
 
-async function getData() {
+async function getData(position: any) {
   const token = sessionStorage.getItem("accessToken");
-  const position = await getCoordinate();
 
   const data = axios
     .get("http://localhost:8080/recent", {
