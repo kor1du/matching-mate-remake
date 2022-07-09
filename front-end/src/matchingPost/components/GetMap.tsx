@@ -73,7 +73,7 @@ function createMarker(map: any, coordinate: Position): any {
 /* 실시간 위치 조회 */
 function getAddress(position: Position, setAddress: any): void {
   axios
-    .get("http://localhost:8080/address", {
+    .get("https://api.matching-mate.com/address", {
       params: {
         lat: position.lat,
         lng: position.lng,

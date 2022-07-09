@@ -4,9 +4,9 @@ import GetChattingRoom from "./GetChattingRoom";
 
 const token: string | null = "bearer " + sessionStorage.getItem("accessToken");
 let stomp_client: any;
-let socket = new SockJS("http://localhost:8080/stomp/chat");
+let socket = new SockJS("https://api.matching-mate.com/stomp/chat");
 stomp_client = Stomp.over(socket);
-stomp_client.debug = () => {};
+// stomp_client.debug = () => {};
 
 export default function Connect(roomID: number, setMessages: any, scrollRef: any): void {
   stomp_client.connect({}, function () {
@@ -26,6 +26,7 @@ function subscribe(roomID: number, setMessages: any, scrollRef: any): Promise<Ob
       GetChattingRoom(roomID)
         .then((res: any) => {
           setMessages(res.readMessageList);
+          console.log(res);
         })
         .then(() => {
           setTimeout(() => {

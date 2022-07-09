@@ -40,9 +40,12 @@ public class MatchingPostService {
 
     // 매칭 공고 추가
     public ResponseMessage save(MatchingPostDTO.CreateDTO matchingPostCreateDTO, String token) {
-
-        // 카테고리 검색
-        Optional<Category> category = categoryRepository.findById(matchingPostCreateDTO.getCategoryId());
+        Optional<Category> category=null;
+        if(matchingPostCreateDTO.getCategoryId()==1)
+        category = categoryRepository.findById(Long.parseLong("2"));
+        else{
+            category = categoryRepository.findById(matchingPostCreateDTO.getCategoryId());
+        }
         if (category.isEmpty()) return new ResponseMessage(HttpStatus.NOT_FOUND, "검색한 카테고리가 없습니다.");
 
         // 회원 검색

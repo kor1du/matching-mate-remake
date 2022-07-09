@@ -49,12 +49,7 @@ const ModalPostCreate: React.FC = () => {
         공고등록
       </Button>
 
-      <Modal
-        show={show}
-        onHide={handleClose}
-        centered
-        className="modal-post-create modal-post"
-      >
+      <Modal show={show} onHide={handleClose} centered className="modal-post-create modal-post">
         <Modal.Header closeButton>
           <Modal.Title>공고 등록</Modal.Title>
         </Modal.Header>
@@ -128,10 +123,7 @@ const ModalPostCreate: React.FC = () => {
             <label>장소 : </label>
             <input type="text" value={newPost.place} readOnly />
             <div className="btn-address">
-              <ModalAddress
-                newPost={newPost}
-                setNewPost={setNewPost}
-              ></ModalAddress>
+              <ModalAddress newPost={newPost} setNewPost={setNewPost}></ModalAddress>
             </div>
           </div>
           <div className="max-number-of-people">
@@ -184,7 +176,9 @@ const ModalPostCreate: React.FC = () => {
         <Modal.Footer>
           <Button
             onClick={(e) => {
+              e.preventDefault();
               CreatePost(newPost);
+              handleClose();
             }}
           >
             등록하기

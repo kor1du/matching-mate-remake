@@ -3,7 +3,7 @@ import axios from "axios";
 export default function Join(postID: number) {
   axios
     .post(
-      "http://localhost:8080/matchingPost/join",
+      "https://api.matching-mate.com/matchingPost/join",
       {
         matchingPostId: postID,
       },

@@ -11,7 +11,7 @@ export default async function GetCategorys() {
 }
 
 function getData(): any {
-  const categorys = axios.get("http://localhost:8080/category").then((res) => {
+  const categorys = axios.get("https://api.matching-mate.com/category").then((res) => {
     return res.data.data;
   });
   return categorys;

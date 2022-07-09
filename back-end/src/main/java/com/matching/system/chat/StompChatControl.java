@@ -32,8 +32,9 @@ public class StompChatControl {
         Long memberId = jwtTokenUtil.getMemberId(jwtTokenUtil.resolveToken(sendMessageDTO.getToken()));
 
         ChattingDTO.ReadChattingMessageDTO responseMessageDTO = chattingService.sendMessage(sendMessageDTO, memberId);
-
-        simpMessagingTemplate.convertAndSend("/sub/chat/in/2", responseMessageDTO);
+        String destination="/sub/chat/in/"+sendMessageDTO.getRoomId();
+        System.out.println("Destination is ... : "+destination);
+        simpMessagingTemplate.convertAndSend(destination, responseMessageDTO);
     }
 
     // ready 상태

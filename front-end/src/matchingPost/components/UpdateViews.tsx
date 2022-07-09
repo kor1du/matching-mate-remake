@@ -8,7 +8,7 @@ export default async function UpdateViews(post: Post, setPost: Function, positio
 
 function updateData(post: Post, setPost: Function, coordinator: Position) {
   axios
-    .put("http://localhost:8080/matcingPost/update/views", {
+    .put("https://api.matching-mate.com/matcingPost/update/views", {
       id: post.id,
       lat: coordinator.lat,
       lng: coordinator.lng,

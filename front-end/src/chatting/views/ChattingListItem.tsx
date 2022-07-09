@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ChattingList } from "../components/GetChattingList";
+import { ChattingListInterface } from "../components/GetChattingList";
 
 interface itemProps {
-  item: ChattingList;
+  item: ChattingListInterface;
 }
 const Item: React.FC<itemProps> = ({ item }) => {
   const navigate = useNavigate();

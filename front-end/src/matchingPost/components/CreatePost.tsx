@@ -18,7 +18,7 @@ export default function CreatePost(newPost: NewPost): void {
 
 function postData(newPost: NewPost): void {
   axios
-    .post("http://localhost:8080/matchingPost/create", newPost, {
+    .post("https://api.matching-mate.com/matchingPost/create", newPost, {
       headers: {
         Authorization: "bearer " + sessionStorage.getItem("accessToken"),
       },

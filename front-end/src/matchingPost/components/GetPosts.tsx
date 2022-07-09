@@ -27,7 +27,7 @@ async function getData(position: any) {
   const token = sessionStorage.getItem("accessToken");
 
   const data = axios
-    .get("http://localhost:8080/recent", {
+    .get("https://api.matching-mate.com/recent", {
       params: {
         Authorization: token,
         lat: position.lat,

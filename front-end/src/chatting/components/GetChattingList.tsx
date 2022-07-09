@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export interface ChattingList {
+export interface ChattingListInterface {
   id: number;
   isCompleted: number;
   matchingPostId: number;
@@ -22,7 +22,7 @@ function getData(): Promise<object> {
   const token: string | null = sessionStorage.getItem("accessToken");
 
   const data = axios
-    .get("http://localhost:8080/chat", {
+    .get("https://api.matching-mate.com/chat", {
       headers: {
         Authorization: "bearer " + token,
       },

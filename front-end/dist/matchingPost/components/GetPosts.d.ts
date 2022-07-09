@@ -15,4 +15,4 @@ export interface Post {
     registerDatetime: string;
     views: number;
 }
-export default function GetPosts(): Promise<Post[]>;
+export default function GetPosts(position: any): Promise<Post[]>;

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import GetChattingList, { ChattingList } from "./components/GetChattingList";
+import GetChattingList, { ChattingListInterface } from "./components/GetChattingList";
 import ChattingListItem from "./views/ChattingListItem";
 import "./styles/chattingList.css";
 
 const ChattingList: React.FC = () => {
-  const [chattingList, setChattingList] = useState<Array<ChattingList>>([
+  const [chattingList, setChattingList] = useState<Array<ChattingListInterface>>([
     {
       id: 0,
       isCompleted: 0,

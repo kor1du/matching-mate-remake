@@ -20,12 +20,12 @@ public interface RatingRepository extends JpaRepository<Rating, Long> {
             "WHERE r.matchingHistory=:matchingHistory AND r.targetMember=:targetMember AND r.member=:member")
     Optional<Rating> findByMatchingHistoryIdAndMemberIdAndTargetMemberId(@Param("matchingHistory") MatchingHistory matchingHistory, @Param("member") Member member, @Param("targetMember") Member targetMember);
 
-    @Query(value = "SELECT AVG(r.manner_point) AS manner_point FROM Rating r " +
+    @Query(value = "SELECT AVG(r.manner_point) AS manner_point FROM rating r " +
             "WHERE r.target_member_id=:id " +
             "GROUP BY r.target_member_id", nativeQuery = true)
     Float findByAvgMannerPoint(@Param("id") Long id);
 
-    @Query(value = "SELECT AVG(r.skill_point) AS skill_point FROM Rating r " +
+    @Query(value = "SELECT AVG(r.skill_point) AS skill_point FROM rating r " +
             "WHERE r.target_member_id=:id " +
             "GROUP BY r.target_member_id", nativeQuery = true)
     Float findByAvgSkillPoint(@Param("id") Long id);

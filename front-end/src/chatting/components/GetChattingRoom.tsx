@@ -33,7 +33,7 @@ export default function GetChattingRoom(roomId: any): Promise<object> {
 
 function getData(roomId: any): Promise<object> {
   const data = axios
-    .get(`http://localhost:8080/chat/in/${roomId}`, {
+    .get(`https://api.matching-mate.com/chat/in/${roomId}`, {
       headers: {
         Authorization: `bearer ${sessionStorage.getItem("accessToken")}`,
       },

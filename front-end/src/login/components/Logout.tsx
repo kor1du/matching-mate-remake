@@ -8,7 +8,7 @@ export default function Logout() {
 
 function postLogout(): void {
   axios.post(
-    "http://localhost:8080/logout",
+    "https://api.matching-mate.com/logout",
     {},
     {
       headers: {
